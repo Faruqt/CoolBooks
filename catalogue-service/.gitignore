@@ -1,0 +1,15 @@
+#flask
+/env
+.env
+
+#db sql
+
+backend/__pycache__
+
+# Python
+*.py[cod]
+*.$py.class
+
+# VS Code
+*.vscode
+**/.vscode/
