@@ -1,6 +1,9 @@
 from flask import Flask
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5003)
+    with app.app_context():
+        from .api import cb as catalogue_blueprint
+        app.register_blueprint(catalogue_blueprint)
+        return app
