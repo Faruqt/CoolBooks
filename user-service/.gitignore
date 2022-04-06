@@ -4,7 +4,7 @@
 
 #db sql
 
-backend/__pycache__
+__pycache__
 
 # Python
 *.py[cod]
