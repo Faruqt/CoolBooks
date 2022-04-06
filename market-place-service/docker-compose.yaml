@@ -1,56 +1,44 @@
 version: "3.9"
 
 services:
-    user-service:
-        container_name: cbooks_user
-        hostname: profile
-        build:
-            context: ./user-service
-        ports:
-            - 5051:5001  # host:container ${PORT}
-        networks:
-            - cbooks_net
-        # depends_on: 
-        #     - db
-
-    catalogue-service:
-        container_name: cbooks_catalogue
-        hostname: catalogue
-        build:
-            context: ./catalogue-service
-        ports:
-            - 5053:5003  # host:container ${PORT}
-        networks:
-            - cbooks_net
-        depends_on: 
-            # - db
-            - user-service
-
-    market-place-service:
+    mp-service:
         container_name: cbooks_market_place
         hostname: market-place
         build:
-            context: ./market-place-service
+            context: .
         ports:
            - 5052:5002  # host:container  
         networks:
-            - cbooks_net
-        # depends_on: 
-        #     - db
+            - mbooks
+        depends_on: 
+            - market-db
+        restart: "unless-stopped"
 
-    # db:
-    #     image: postgres:13-alpine
-    #     volumes:
-    #       - postgres_data:/var/lib/postgresql/data/
-    #     environment:
-    #       - POSTGRES_USER=admin
-    #       - POSTGRES_PASSWORD=admin123
-    #       - POSTGRES_DB=cool_books_db
+    market-db:
+        image: postgres:13-alpine
+        volumes:
+          - postgres_data:/var/lib/postgresql/data/
+        env_file: database.conf
+        ports: 
+          - 35432:5432
+        networks:
+          - mbooks
 
-# volumes:
-#     postgres_data:
+
+
+volumes:
+    postgres_data:
 
 networks:
-    cbooks_net:
+    mbooks:
+        external:
+            name: cbooks_net
 
+        
+
+        
+        
+                
+        
+                
         
