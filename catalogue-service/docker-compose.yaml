@@ -1,37 +1,38 @@
 version: "3.9"
 
 services:
-    catalogue-service:
+    ctl-service:
         container_name: cbooks_catalogue
         hostname: catalogue
         build:
-            context: ./catalogue-service
+            context: .
         ports:
-            - 5053:5003  # host:container ${PORT}
+            - 5053:5003 
         networks:
-            - cbooks_net
+            - books_net
         depends_on: 
             - catalogue-db
+        restart: "unless-stopped"
 
     catalogue-db:
         image: postgres:13-alpine
         volumes:
           - postgres_data:/var/lib/postgresql/data/
-        environment:
-          - POSTGRES_USER=admin
-          - POSTGRES_PASSWORD=admin123
-          - POSTGRES_DB=cool_books_catalogue_db
+        env_file: database.conf
         ports: 
-          - 15432:5432
+          - 25432:5432
         networks:
-          - cbooks_net
+          - books_net
 
 volumes:
     postgres_data:
 
 networks:
-    cbooks_net:
+    books_net:
         external:
-            name: coolbooks_cbooks_net 
+            name: cbooks_net
+
+
+        
 
         
