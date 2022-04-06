@@ -5,52 +5,33 @@ services:
         container_name: cbooks_user
         hostname: profile
         build:
-            context: ./user-service
+            context: .
         ports:
             - 5051:5001  # host:container ${PORT}
         networks:
             - cbooks_net
-        # depends_on: 
-        #     - db
-
-    catalogue-service:
-        container_name: cbooks_catalogue
-        hostname: catalogue
-        build:
-            context: ./catalogue-service
-        ports:
-            - 5053:5003  # host:container ${PORT}
-        networks:
-            - cbooks_net
         depends_on: 
-            # - db
-            - user-service
+            - user-db
+        restart: "unless-stopped"
 
-    market-place-service:
-        container_name: cbooks_market_place
-        hostname: market-place
-        build:
-            context: ./market-place-service
-        ports:
-           - 5052:5002  # host:container  
+    user-db:
+        # container_name: cuser-db
+        # hostname: cuser-db
+        image: postgres:13-alpine
+        volumes:
+          - postgres_data:/var/lib/postgresql/data/
+        env_file: database.conf
+        ports: 
+          - 15432:5432
         networks:
-            - cbooks_net
-        # depends_on: 
-        #     - db
+          - cbooks_net
 
-    # db:
-    #     image: postgres:13-alpine
-    #     volumes:
-    #       - postgres_data:/var/lib/postgresql/data/
-    #     environment:
-    #       - POSTGRES_USER=admin
-    #       - POSTGRES_PASSWORD=admin123
-    #       - POSTGRES_DB=cool_books_db
-
-# volumes:
-#     postgres_data:
+volumes:
+    postgres_data:
 
 networks:
     cbooks_net:
+
+        
 
         
