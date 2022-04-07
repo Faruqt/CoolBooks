@@ -2,4 +2,4 @@ from flask import Blueprint
 
 mb = Blueprint('market', __name__)
 
-from . import market
+from . import market, auth
