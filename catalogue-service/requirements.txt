@@ -1,7 +1,9 @@
 certifi==2021.10.8
 charset-normalizer==2.0.12
 click==8.1.2
+cloudinary==1.29.0
 Flask==2.0.2
+Flask-JWT-Extended==4.3.1
 Flask-SQLAlchemy==2.5.1
 greenlet==1.1.2
 idna==3.3
@@ -9,6 +11,7 @@ itsdangerous==2.1.2
 Jinja2==3.1.1
 MarkupSafe==2.1.1
 psycopg2-binary==2.8.6
+PyJWT==2.3.0
 python-dotenv==0.20.0
 requests==2.26.0
 SQLAlchemy==1.4.34
