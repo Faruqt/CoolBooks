@@ -32,7 +32,8 @@ volumes:
 networks:
     mbooks:
         external:
-            name: cbooks_net
+            name: user-service_cbooks_net
+
 
         
 
