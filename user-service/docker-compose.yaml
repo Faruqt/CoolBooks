@@ -2,12 +2,11 @@ version: "3.9"
 
 services:
     user:
-        container_name: cbooks_user
-        hostname: profile
+        container_name: cbooks_user-service
         build:
             context: .
         ports:
-            - 5051:5001  # host:container ${PORT}
+            - 5051:5001 
         networks:
             - cbooks_net
         depends_on: 
@@ -29,6 +28,10 @@ volumes:
 
 networks:
     cbooks_net:
+# networks:
+#     cbooks_net:
+#         external:
+#             name: cbooks_net
 
         
 
