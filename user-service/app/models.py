@@ -30,7 +30,7 @@ class User(db.Model):
 		if 'password' in data:
 			self.set_password(data['password'])
 
-	def to_dict(self):
+	def to_json(self):
 		return {
 				'id': self.id,
 				'first_name': self.first_name,
