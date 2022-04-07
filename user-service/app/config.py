@@ -1,5 +1,6 @@
 import os
-from dotenv import load_dotenv 
+from dotenv import load_dotenv
+from datetime import timedelta 
 
 load_dotenv()
 
@@ -11,7 +12,8 @@ port = os.environ['POSTGRES_PORT']
 DATABASE_CONNECTION_URI = f'postgresql+psycopg2://{user}:{password}@{host}:{port}/{database}'
 
 
-
+JWT_SECRET_KEY = os.environ['JWT_SECRET_KEY']
+ACCESS_TOKEN_EXPIRES = timedelta(hours=int(os.environ['JWT_ACCESS_TOKEN_EXPIRES']))
 
 
 
