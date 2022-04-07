@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-    user-service:
+    user:
         container_name: cbooks_user
         hostname: profile
         build:
