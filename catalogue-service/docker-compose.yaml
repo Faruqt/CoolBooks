@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-    ctl-service:
+    ctlg:
         container_name: cbooks_catalogue
         hostname: catalogue
         build:
@@ -30,7 +30,7 @@ volumes:
 networks:
     books_net:
         external:
-            name: cbooks_net
+            name: user-service_cbooks_net
 
 
         
