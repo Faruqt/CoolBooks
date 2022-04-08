@@ -8,7 +8,7 @@ services:
         ports:
             - 5051:5001 
         networks:
-            - cbooks_net
+            - ubooks_net
         depends_on: 
             - user-db
         restart: "unless-stopped"
@@ -21,18 +21,15 @@ services:
         ports: 
           - 15432:5432
         networks:
-          - cbooks_net
+          - ubooks_net
 
 volumes:
     postgres_data:
 
 networks:
-    cbooks_net:
-# networks:
-#     cbooks_net:
-#         external:
-#             name: cbooks_net
+    ubooks_net:
+        external:
+            name: cbooks_net
 
-        
-
+    
         

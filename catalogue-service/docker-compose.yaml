@@ -30,7 +30,7 @@ volumes:
 networks:
     books_net:
         external:
-            name: user-service_cbooks_net
+            name: cbooks_net
 
 
         
