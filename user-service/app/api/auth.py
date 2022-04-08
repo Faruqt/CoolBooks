@@ -57,6 +57,11 @@ def post_register():
 @ub.route('/api/user/login', methods=['POST'])
 def post_login():
     data = request.form.to_dict() or {}
+
+    for field in ['email', 'password']:
+        if field not in data:
+            return bad_request('Please make sure all fields are filled in correctly')
+
     email = data['email']
     password = data['password']
 
