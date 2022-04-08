@@ -1,7 +1,7 @@
 from flask import jsonify, request, make_response
 from .auth import UserClient
 from . import cb
-from .errors import bad_request
+from .errors import bad_request, error_response
 from ..models import Catalogue
 from .. import db
 from cloudinary.uploader import upload
@@ -32,14 +32,15 @@ def catalogue_add_item():
     
     #verify that user is logged in
     response = UserClient.get_user(api_key)
+    if response == 'network error':
+        return error_response(502, 'Error connecting to the user-service, confirm the service is running')
     if not response:
         return make_response(jsonify({'message': 'You are not logged in'}), 401)
 
     #get form data
     data = request.form.to_dict() or {}
-    book_image = request.files['file']
     
-    if not book_image:
+    if 'file' not in request.files:
         return bad_request('Please add a cover image for the book')
 
     for field in ['title', 'author', 'desc']:
@@ -50,6 +51,7 @@ def catalogue_add_item():
         return bad_request('Book already exists in the catalogue')
 
     #call function to upload image to cloudinary
+    book_image = request.files['file']
     image = upload_to_cloudinary(book_image)
 
     title = data['title'].lower()
@@ -63,7 +65,7 @@ def catalogue_add_item():
     db.session.add(catalogue)
     db.session.commit()
 
-    response = jsonify({'result': catalogue.to_json()})
+    response = {'result': catalogue.to_json()}
     return response
 
 
