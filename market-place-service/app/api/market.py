@@ -79,7 +79,7 @@ def proposals():
 
     # Get requests that match user's open exchange requests on the market
     for user_request in user_exchange_requests:
-        request_type = ExchangeRequest.query.filter_by(type = user_request.wanted_type).all()
+        request_type = ExchangeRequest.query.filter(ExchangeRequest.user_id !=user['id'], ExchangeRequest.type == user_request.wanted_type).all()
         for match in request_type:
             if match.to_json() not in book_proposals:
                 book_proposals.append(match.to_json())
