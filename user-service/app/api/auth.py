@@ -30,7 +30,7 @@ def refresh_expiring_jwts(response):
 def post_register():
     data = request.form.to_dict() or {}
 
-    for field in ['username', 'email', 'first_name', 'last_name', 'password']:
+    for field in ['username', 'email', 'first_name', 'last_name', 'password', 'preferences']:
         if field not in data:
             return bad_request('Please make sure all fields are filled in correctly')
 
@@ -44,6 +44,7 @@ def post_register():
     user.first_name = data['first_name']
     user.last_name = data['last_name']
     user.username = data['username']
+    user.book_preferences = data['preferences']
     user.set_password(data['password'])
 
     db.session.add(user)
