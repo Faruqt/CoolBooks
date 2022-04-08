@@ -6,6 +6,11 @@ from ..models import Catalogue
 from .. import db
 from cloudinary.uploader import upload
 
+@cb.route('/')
+def catalogue_service():
+    response = "Welcome to Cool Books catalogue service"
+    return response
+    
 @cb.route('/api/catalogue', methods=['GET'])
 def catalogue_items():
     data = []

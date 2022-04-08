@@ -6,6 +6,11 @@ from ..models import ExchangeRequest
 from .. import db
 from cloudinary.uploader import upload
 
+@mb.route('/')
+def market_service():
+    response = "Welcome to Cool Books market place service"
+    return response
+    
 @mb.route('/api/market/exchange', methods=['POST'])
 def open_request():
     #confirm that token was added to the header
