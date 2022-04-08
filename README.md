@@ -24,34 +24,41 @@ docker network create cbooks_net
 
 ### Step 2.
 Start your containers:
+
 Navigate into each of the services folder and run:
 ```
 docker-compose up
 ```
 
 ### Step 3.
-Using any API testing application of your choice. Navigate to the following api end points to explore the microservices. 
+Using any API testing application of your choice, navigate to the following api end points to explore the microservices. 
 
 - User-service api endpoints:
-I.	Create user:  https://cookbooks-user.herokuapp.com/api/user/create (POST)
-II.	Login user: https://cookbooks-user.herokuapp.com/api/user/login (POST)
-III.	Logout user: https://cookbooks-user.herokuapp.com/api/user/logout (POST)
-IV.	Get authenticated user: https://cookbooks-user.herokuapp.com/api/user (GET)
-V.	Get single user: https://cookbooks-user.herokuapp.com/api/user/<username>(GET)
-VI.	 Get all users: https://cookbooks-user.herokuapp.com/api/users (GET)
+
+    I. Create user:  https://cookbooks-user.herokuapp.com/api/user/create (POST)
+    
+   II.	Login user: https://cookbooks-user.herokuapp.com/api/user/login (POST)
+   
+   III.	Logout user: https://cookbooks-user.herokuapp.com/api/user/logout (POST)
+   
+   IV. Get authenticated user: https://cookbooks-user.herokuapp.com/api/user (GET)
+   
+   V.	Get single user: https://cookbooks-user.herokuapp.com/api/user/<username>(GET)
+   
+   VI. Get all users: https://cookbooks-user.herokuapp.com/api/users (GET)
 
 - Catalogue-service api endpoints:
 
-I.	Get all books: https://coolbooks-catalogue.herokuapp.com/api/catalogue (GET)
-II.	Get single book: https://coolbooks-catalogue.herokuapp.com/api/catalogue/<id>
-(GET)
-III.	Update Catalogue: (POST)
- 	 https://coolbooks catalogue.herokuapp.com/api/catalogue/create
+   I.	Get all books: https://coolbooks-catalogue.herokuapp.com/api/catalogue (GET)
+   
+   II. Get single book: https://coolbooks-catalogue.herokuapp.com/api/catalogue/<id> (GET)
+
+  III. Update Catalogue: https://coolbooks catalogue.herokuapp.com/api/catalogue/create (POST)
 
 - Market place-service api endpoints:
 
-I.	Create exchange request: (POST)
-https://coolbooks-market.herokuapp.com/api/market/exchange
-II.	Get proposals:   https://coolbooks-market.herokuapp.com/api/market/proposals (GET)
+   I.	Create exchange request: https://coolbooks-market.herokuapp.com/api/market/exchange (POST)
+   
+   II. Get proposals: https://coolbooks-market.herokuapp.com/api/market/proposals (GET)
 
 
