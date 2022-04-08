@@ -6,15 +6,13 @@
    - Marketplace - A place where users can swap their books
 
 ## Project Structure
-The Applicaition comprises of 3 microservices: 
-* [user-service](https://cookbooks-user.herokuapp.com/)
-* [catalogue-service](https://coolbooks-catalogue.herokuapp.com/)
-* [market-place-service](https://coolbooks-market.herokuapp.com/)
-
+The Application comprises of 3 microservices: 
+* [user-service](http://127.0.0.1:5051)
+* [catalogue-service](http://127.0.0.1:5053)
+* [market-place-service](http://127.0.0.1:5052)
 
 ## Application Setup and Configuration
-To launch the end-to-end microservices application perform the following:
-
+To launch the microservices application perform the following:
 
 ### Step 1.
 Create a new Docker network and name it ```cbooks_net```:
@@ -31,34 +29,39 @@ docker-compose up
 ```
 
 ### Step 3.
-Using any API testing application of your choice, navigate to the following api end points to explore the microservices. 
+Using any API testing application of your choice, navigate to the following api end points to test the API endpoints in each micro-service. 
 
 - User-service api endpoints:
 
-    I. Create user:  https://cookbooks-user.herokuapp.com/api/user/create (POST)
+    I. Create user:  http://127.0.0.1:5051/api/user/create (POST)
     
-   II.	Login user: https://cookbooks-user.herokuapp.com/api/user/login (POST)
+   II.	Login user: http://127.0.0.1:5051/api/user/login (POST)
    
-   III.	Logout user: https://cookbooks-user.herokuapp.com/api/user/logout (POST)
+   III.	Logout user: http://127.0.0.1:5051/api/user/logout (POST)
    
-   IV. Get authenticated user: https://cookbooks-user.herokuapp.com/api/user (GET)
+   IV. Get authenticated user: http://127.0.0.1:5051/api/user (GET)
    
-   V.	Get single user: https://cookbooks-user.herokuapp.com/api/user/<username>(GET)
+   V.	Get single user: http://127.0.0.1:5051/api/user/<username>(GET)
    
-   VI. Get all users: https://cookbooks-user.herokuapp.com/api/users (GET)
+   VI. Get all users: http://127.0.0.1:5051/api/users (GET)
 
 - Catalogue-service api endpoints:
 
-   I.	Get all books: https://coolbooks-catalogue.herokuapp.com/api/catalogue (GET)
+   I.	Get all books: http://127.0.0.1:5053/api/catalogue (GET)
    
-   II. Get single book: https://coolbooks-catalogue.herokuapp.com/api/catalogue/<id> (GET)
+   II. Get single book: http://127.0.0.1:5053/api/catalogue/<id> (GET)
 
-  III. Update Catalogue: https://coolbooks catalogue.herokuapp.com/api/catalogue/create (POST)
+  III. Update Catalogue: http://127.0.0.1:5053/api/catalogue/create (POST)
 
 - Market place-service api endpoints:
 
-   I.	Create exchange request: https://coolbooks-market.herokuapp.com/api/market/exchange (POST)
+   I.	Create exchange request: http://127.0.0.1:5052/api/market/exchange (POST)
    
-   II. Get proposals: https://coolbooks-market.herokuapp.com/api/market/proposals (GET)
+   II. Get proposals: http://127.0.0.1:5052/api/market/proposals (GET)
 
-
+## Hosted Project
+The 3 microservices have also been hosted on heroku server: 
+* [user-service](https://cookbooks-user.herokuapp.com/)
+* [catalogue-service](https://coolbooks-catalogue.herokuapp.com/)
+* [market-place-service](https://coolbooks-market.herokuapp.com/)
+   
