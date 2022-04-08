@@ -3,6 +3,7 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 
 db = flask_sqlalchemy.SQLAlchemy()
+
 class User(db.Model):
 	__tablename__ = 'cool_user'
 	
@@ -11,6 +12,7 @@ class User(db.Model):
 	email = db.Column(db.String(120), index=True, unique=True)
 	first_name = db.Column(db.String(255), unique=False)
 	last_name = db.Column(db.String(255), unique=False)
+	book_preferences = db.Column(db.String(255), unique=False)
 	password_hash = db.Column(db.String(255))
 
 	def __repr__(self):
@@ -36,6 +38,7 @@ class User(db.Model):
 				'first_name': self.first_name,
 				'last_name': self.last_name,
 				'username': self.username,
+				'preferences': self.book_preferences,
 				'email': self.email
 			}
 
