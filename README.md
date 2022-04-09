@@ -43,7 +43,7 @@ Kindly note: Data from user should be provided as **form-data**
    
    IV. Get authenticated user: http://127.0.0.1:5051/api/user (GET)
    
-   V.	Get single user: http://127.0.0.1:5051/api/user/<username>(GET)
+   V.	Get single user: http://127.0.0.1:5051/api/user/username/(GET)
    
    VI. Get all users: http://127.0.0.1:5051/api/users (GET)
 
@@ -51,7 +51,7 @@ Kindly note: Data from user should be provided as **form-data**
 
    I.	Get all books: http://127.0.0.1:5053/api/catalogue (GET)
    
-   II. Get single book: http://127.0.0.1:5053/api/catalogue/<id> (GET)
+   II. Get single book: http://127.0.0.1:5053/api/catalogue/id (GET)
 
   III. Update Catalogue: http://127.0.0.1:5053/api/catalogue/create (POST)
 
