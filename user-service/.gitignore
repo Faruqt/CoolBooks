@@ -1,6 +1,7 @@
 #flask
 .env
 /env
+.flaskenv
 
 #db sql
 
