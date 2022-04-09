@@ -31,6 +31,8 @@ docker-compose up
 ### Step 3.
 Using any API testing application of your choice, navigate to the following api end points to test the API endpoints in each micro-service. 
 
+Kindly note: Data from user should be provided as **form-data** 
+
 - User-service api endpoints:
 
     I. Create user:  http://127.0.0.1:5051/api/user/create (POST)
@@ -41,7 +43,7 @@ Using any API testing application of your choice, navigate to the following api 
    
    IV. Get authenticated user: http://127.0.0.1:5051/api/user (GET)
    
-   V.	Get single user: http://127.0.0.1:5051/api/user/<username>(GET)
+   V.	Get single user: http://127.0.0.1:5051/api/user/username/(GET)
    
    VI. Get all users: http://127.0.0.1:5051/api/users (GET)
 
@@ -49,7 +51,7 @@ Using any API testing application of your choice, navigate to the following api 
 
    I.	Get all books: http://127.0.0.1:5053/api/catalogue (GET)
    
-   II. Get single book: http://127.0.0.1:5053/api/catalogue/<id> (GET)
+   II. Get single book: http://127.0.0.1:5053/api/catalogue/id (GET)
 
   III. Update Catalogue: http://127.0.0.1:5053/api/catalogue/create (POST)
 
