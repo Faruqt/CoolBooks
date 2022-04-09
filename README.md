@@ -31,6 +31,8 @@ docker-compose up
 ### Step 3.
 Using any API testing application of your choice, navigate to the following api end points to test the API endpoints in each micro-service. 
 
+Kindly note: Data from user should be provided as **form-data** 
+
 - User-service api endpoints:
 
     I. Create user:  http://127.0.0.1:5051/api/user/create (POST)
