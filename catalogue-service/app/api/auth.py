@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-service-url = os.environ['USER-SERVICE']
+service_url = os.environ['USER-SERVICE']
 class UserClient:
     @staticmethod
     def get_user(token):
@@ -12,7 +12,7 @@ class UserClient:
             'Authorization': token
         }
         try:
-            response = requests.request(method="GET", url=service-url, headers=headers)
+            response = requests.request(method="GET", url=service_url, headers=headers)
         except requests.exceptions.ConnectionError:
             return 'network error'
         
